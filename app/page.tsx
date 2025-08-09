@@ -4,9 +4,13 @@ import React, { useMemo, useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, Environment, Edges } from "@react-three/drei";
 import { Search, Bot, Sparkles, ThumbsUp } from "lucide-react";
+import * as THREE from "three";
 
-function Bubble({ position = [0, 0, 0], color = "#60a5fa", scale = 1, glow = 1 }) {
-  const ref = useRef(null);
+function Bubble(
+  { position = [0, 0, 0], color = "#60a5fa", scale = 1, glow = 1 }:
+  { position?: [number, number, number]; color?: string; scale?: number; glow?: number }
+) {
+  const ref = useRef<THREE.Mesh | null>(null);
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
     if (!ref.current) return;
@@ -34,8 +38,8 @@ function Bubble({ position = [0, 0, 0], color = "#60a5fa", scale = 1, glow = 1 }
   );
 }
 
-function PaperPlane({ position = [0, 0, 0] }) {
-  const ref = useRef(null);
+function PaperPlane({ position = [0, 0, 0] }: { position?: [number, number, number] }) {
+  const ref = useRef<THREE.Group | null>(null);
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
     if (!ref.current) return;
