@@ -6,7 +6,7 @@ import { Float, Environment, Edges } from "@react-three/drei";
 import { Search, Bot, Sparkles, ThumbsUp } from "lucide-react";
 
 function Bubble({ position = [0,0,0], color = "#60a5fa", scale = 1, glow = 1 }) {
-  const ref = useRef<any>();
+  const ref = useRef<any>(null);
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
     if (ref.current) {
@@ -36,7 +36,7 @@ function Bubble({ position = [0,0,0], color = "#60a5fa", scale = 1, glow = 1 }) 
 }
 
 function PaperPlane({ position = [0,0,0] }) {
-  const ref = useRef<any>();
+  const ref = useRef<any>(null);
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
     if (ref.current) {
