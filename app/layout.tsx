@@ -1,3 +1,4 @@
+import "./globals.css";
 export const metadata = {
   title: "BotScope — обзоры Telegram-ботов",
   description: "3D-страница с обзорами ботов"
